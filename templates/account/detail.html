@@ -5,6 +5,16 @@
 
 {% block content %}
   <h1>{{ user.get_full_name }}</h1>
+
+<div class="card" style="width: 18rem;">
+  <img src="{% url 'user.profile.photo.url' %}" class="card-img-top" alt="Profile Pic">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="{%url 'accounts:profile' %}" class="btn btn-primary">{{user.first_name}}</a>
+  </div>
+</div>
+
   <div class="profile-info">
     {% thumbnail user.profile.photo "180x180" crop="100%" as im %}
       <img src="{{ im.url }}" class="user-detail">
